@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>HAS SIDO DIMEADO!</title>
+    <title>El Dimeador</title>
     <style>
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
-            overflow: hidden;
             background-color: black;
         }
 
@@ -15,7 +14,10 @@
             position: fixed;
             top: 0;
             left: 0;
+            min-width: 100%;
             min-height: 100%;
+            z-index: -1;
+            display: none;
         }
 
         #audio-player {
@@ -23,9 +25,27 @@
             top: -9999px;
             left: -9999px;
         }
+
+        #content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        #dimeado-button {
+            padding: 20px;
+            background-color: #fff;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
+    <div id="content">
+        <button id="dimeado-button">Presiona para ser Dimeado</button>
+    </div>
     <video id="fullscreen-video" autoplay loop muted>
         <source src="dimariposa.mp4" type="video/mp4">
     </video>
@@ -34,17 +54,18 @@
     </audio>
     <script>
         window.addEventListener('DOMContentLoaded', function() {
+            var button = document.getElementById('dimeado-button');
             var videoElement = document.getElementById('fullscreen-video');
             var audioPlayer = document.getElementById('audio-player');
             audioPlayer.volume = 0.5; // Adjust the volume (0.0 - 1.0) as desired.
-            
-            // Autoplay video and audio on page load
-            videoElement.play();
-            audioPlayer.play();
+
+            button.addEventListener('click', function() {
+                button.style.display = 'none';
+                videoElement.style.display = 'block';
+                videoElement.play();
+                audioPlayer.play();
+            });
         });
     </script>
 </body>
 </html>
-
-
-
