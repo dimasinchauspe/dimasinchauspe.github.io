@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HAS SIDO DIMEADO!</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #fullscreen-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -1;
+        }
+
+        #audio-player {
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+        }
+    </style>
+</head>
+<body>
+    <video id="fullscreen-video" autoplay loop muted>
+        <source src="dimariposa.mp4" type="video/mp4">
+    </video>
+    <audio id="audio-player" autoplay loop>
+        <source src="prendas.mp3" type="audio/mpeg">
+    </audio>
+    <script>
+        window.addEventListener('DOMContentLoaded', function() {
+            var videoElement = document.getElementById('fullscreen-video');
+            var audioPlayer = document.getElementById('audio-player');
+            audioPlayer.volume = 0.5; // Adjust the volume (0.0 - 1.0) as desired.
+            
+            // Autoplay video and audio on page load
+            videoElement.play();
+            audioPlayer.play();
+        });
+    </script>
+</body>
+</html>
+
+
+
